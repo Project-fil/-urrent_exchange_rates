@@ -37,6 +37,7 @@ public class CourseEntity implements Serializable {
     @Column(name = "base_code")
     private String baseCode;
 
+    @ToString.Exclude
     @Column(name = "code_currency")
     private CodeCurrency codeCurrency;
 
