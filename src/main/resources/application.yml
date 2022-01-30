@@ -23,6 +23,10 @@ logging:
     org.springframework.web: INFO
 app:
   api:
-    url: https://v6.exchangerate-api.com/v6/
-    key: 6933516f73f2016658690a3a
-    actual: /latest/
+    exchange-rate:
+      url: https://v6.exchangerate-api.com/v6/
+      key: 6933516f73f2016658690a3a
+      actual-option: /latest/
+    free-currency:
+      url-key: https://freecurrencyapi.net/api/v2/latest?apikey=5c4bc070-797b-11ec-9d8f-ade5adf8122c&base_currency=
+

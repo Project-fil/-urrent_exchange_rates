@@ -9,6 +9,8 @@ public interface CourseService {
 
     List<CourseEntity> getAllHistory(Sort sort);
 
+    CourseEntity getById(String id);
+
     CourseEntity create(CourseEntity courseEntity);
 
 }

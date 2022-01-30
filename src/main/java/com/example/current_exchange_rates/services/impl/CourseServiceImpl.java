@@ -23,6 +23,13 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public CourseEntity getById(String id) {
+        return this.courseRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Course not found"));
+    }
+
+
+    @Override
     public CourseEntity create(CourseEntity courseEntity) {
         return this.courseRepository.save(courseEntity);
     }

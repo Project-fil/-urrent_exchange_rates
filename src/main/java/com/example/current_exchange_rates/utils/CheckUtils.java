@@ -2,6 +2,10 @@ package com.example.current_exchange_rates.utils;
 
 import com.example.current_exchange_rates.entity.enums.CodeCurrency;
 import com.example.current_exchange_rates.exceptions.IllegalArgumentException;
+import com.example.current_exchange_rates.exceptions.KeyNotValidException;
+import com.example.current_exchange_rates.payload.dto.CourseDtoExchangeRate;
+import com.example.current_exchange_rates.payload.dto.CourseDtoFreeCurrency;
+import com.example.current_exchange_rates.payload.responses.BestCourseResponse;
 import lombok.experimental.UtilityClass;
 import org.springframework.data.domain.Sort;
 
@@ -44,6 +48,16 @@ public class CheckUtils {
             return CodeCurrency.USD;
         } else {
             throw new IllegalArgumentException("Error enter currency");
+        }
+    }
+
+    public static String checkCompany(String apiKey) {
+        if (apiKey.equals("6933516f73f2016658690a3a")) {
+            return "ExchangeRate-API";
+        } else if(apiKey.equals("5c4bc070-797b-11ec-9d8f-ade5adf8122c")) {
+            return "Free Currency API";
+        } else {
+            throw new KeyNotValidException("Key not valid");
         }
     }
 

@@ -1,6 +1,7 @@
 package com.example.current_exchange_rates.services.impl;
 
-import com.example.current_exchange_rates.payload.dto.CourseDto;
+import com.example.current_exchange_rates.payload.dto.CourseDtoExchangeRate;
+import com.example.current_exchange_rates.payload.dto.CourseDtoFreeCurrency;
 import com.example.current_exchange_rates.services.TemplateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,24 +15,39 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class TemplateServiceImpl implements TemplateService {
 
-    @Value("${app.api.url}")
-    private String otherServiceUrl;
+    @Value("${app.api.free-currency.url-key}")
+    private String freeCurrencyUrl;
 
-    @Value("${app.api.actual}")
-    private String actual;
+    @Value("${app.api.exchange-rate.url}")
+    private String exchangeRateApiUrl;
+
+    @Value("${app.api.exchange-rate.actual-option}")
+    private String exchangeRateApiActualOption;
 
     private final RestTemplate restTemplate;
 
-    @Override
-    public CourseDto getInfoAnotherService(String currency, String key) {
+    public CourseDtoExchangeRate getInfoWithExchangeRateApi(String currency, String key) {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(httpHeaders);
         return this.restTemplate.exchange(
-                otherServiceUrl + key + actual + currency,
+                this.exchangeRateApiUrl + key + this.exchangeRateApiActualOption + currency,
                 HttpMethod.GET,
                 entity,
-                CourseDto.class
+                CourseDtoExchangeRate.class
+        ).getBody();
+    }
+
+    @Override
+    public CourseDtoFreeCurrency getInfoWithFreeCurrencyApi(String currency) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        HttpEntity<String> entity = new HttpEntity<>(httpHeaders);
+        return this.restTemplate.exchange(
+                this.freeCurrencyUrl + currency,
+                HttpMethod.GET,
+                entity,
+                CourseDtoFreeCurrency.class
         ).getBody();
     }
 

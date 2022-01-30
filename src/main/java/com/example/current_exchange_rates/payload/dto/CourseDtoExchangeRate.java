@@ -10,10 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CourseDto {
-
-    @JsonProperty("time_last_update_utc")
-    private String lastUpdateCourse;
+public class CourseDtoExchangeRate {
 
     @JsonProperty("base_code")
     private String base_code;

@@ -16,6 +16,8 @@ public class ActualCourseResponse {
 
     private String apiKey;
 
+    private String companyName;
+
     private String lastUpdateCourse;
 
     private String baseCode;

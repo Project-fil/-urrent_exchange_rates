@@ -11,6 +11,7 @@ public class TransferObject {
         return new ActualCourseResponse(
                 payload.getId(),
                 payload.getApiKey(),
+                payload.getCompanyName(),
                 payload.getLastUpdateCourse(),
                 payload.getBaseCode(),
                 payload.getCodeCurrency(),

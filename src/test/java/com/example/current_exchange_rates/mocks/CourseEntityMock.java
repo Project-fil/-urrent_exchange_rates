@@ -12,6 +12,7 @@ public class CourseEntityMock {
     public static CourseEntity defaultCourseEur = new CourseEntity(
             "defaultIdUer",
             "6933516f73f2016658690a3a",
+            "ExchangeRate-API",
             "Wed, 26 Jan 2022 00:00:02 +0000",
             "EUR",
             CodeCurrency.USD,
@@ -24,6 +25,7 @@ public class CourseEntityMock {
     public static CourseEntity defaultCourseUsd = new CourseEntity(
             "defaultIdUsd",
             "6933516f73f2016658690a3a",
+            "ExchangeRate-API",
             "Wed, 26 Jan 2022 00:00:04 +0000",
             "USD",
             CodeCurrency.EUR,

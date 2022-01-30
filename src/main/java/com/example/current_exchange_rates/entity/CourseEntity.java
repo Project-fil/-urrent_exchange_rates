@@ -28,6 +28,9 @@ public class CourseEntity implements Serializable {
     @Column(name = "id")
     private String id = UUID.randomUUID().toString();
 
+    @Column(name = "company_name")
+    private String companyName;
+
     @Column(name = "api_key")
     private String apiKey;
 
@@ -59,6 +62,7 @@ public class CourseEntity implements Serializable {
 
     public CourseEntity(
             String apiKey,
+            String companyName,
             String lastUpdateCourse,
             String baseCode,
             CodeCurrency codeCurrency,
@@ -66,6 +70,7 @@ public class CourseEntity implements Serializable {
             BigDecimal eur
     ) {
         this.apiKey = apiKey;
+        this.companyName = companyName;
         this.lastUpdateCourse = lastUpdateCourse;
         this.baseCode = baseCode;
         this.codeCurrency = codeCurrency;
@@ -76,6 +81,7 @@ public class CourseEntity implements Serializable {
     public CourseEntity(
             String id,
             String apiKey,
+            String companyName,
             String lastUpdateCourse,
             String baseCode,
             CodeCurrency codeCurrency,
@@ -84,6 +90,7 @@ public class CourseEntity implements Serializable {
     ) {
         this.id = id;
         this.apiKey = apiKey;
+        this.companyName = companyName;
         this.lastUpdateCourse = lastUpdateCourse;
         this.baseCode = baseCode;
         this.codeCurrency = codeCurrency;
