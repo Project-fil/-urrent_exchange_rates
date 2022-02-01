@@ -1,6 +1,6 @@
 package com.example.current_exchange_rates.utils;
 
-import com.example.current_exchange_rates.exceptions.IllegalArgumentException;
+import com.example.current_exchange_rates.exceptions.KeyNotValidException;
 import com.example.current_exchange_rates.payload.dto.CourseDtoExchangeRate;
 import com.example.current_exchange_rates.payload.dto.CourseDtoFreeCurrency;
 import com.example.current_exchange_rates.payload.responses.BestCourseResponse;
@@ -21,14 +21,14 @@ public class CheckBestCourse {
                 bestCourseResponse = equalsValueUsd(freeCurrency, exchangeRate, apiKeyExchangeRate);
                 break;
             default:
-                throw new IllegalArgumentException("Code not valid");
+                throw new KeyNotValidException("Code not valid");
         }
         return bestCourseResponse;
     }
 
     private BestCourseResponse equalsValueEur(CourseDtoFreeCurrency freeCurrency, CourseDtoExchangeRate exchangeRate, String apiKeyExchangeRate) {
         if (freeCurrency.getConversionRates().getEUR() >= exchangeRate.getConversionRates().getEUR()) {
-           return new BestCourseResponse(
+            return new BestCourseResponse(
                     freeCurrency.getQuery().getBaseCurrency(),
                     CheckUtils.checkCode(freeCurrency.getQuery().getBaseCurrency()).getCode(),
                     BigDecimal.valueOf(freeCurrency.getConversionRates().getEUR()),

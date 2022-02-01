@@ -1,3 +1,3 @@
-insert into actual_course (id, api_key, last_update_course, base_code, code_currency, usd, eur, last_modified_date, created_date)
-values ('defaultIdUer', '6933516f73f2016658690a3a', 'Wed, 26 Jan 2022 00:00:02 +0000', 'EUR', 0, 1.131100, 1.000000, null, null),
-       ('defaultIdUsd', '6933516f73f2016658690a3a', 'Wed, 26 Jan 2022 00:00:02 +0000', 'USD', 1, 1.000000, 0.858500, null, null);
+insert into actual_course (id, api_key, company_name, last_update_course, base_code, code_currency, usd, eur, last_modified_date, created_date)
+values (0x3f06af63a93c11e4979700505690773f, '6933516f73f2016658690a3a', 'ExchangeRate-API', 'Wed, 26 Jan 2022 00:00:02 +0000', 'EUR', 0, 1.131100, 1.000000, null, null),
+       (0x3f06af63a93c11e4979700505690773a, '6933516f73f2016658690a3a', 'ExchangeRate-API', 'Wed, 26 Jan 2022 00:00:02 +0000', 'USD', 1, 1.000000, 0.858500, null, null);

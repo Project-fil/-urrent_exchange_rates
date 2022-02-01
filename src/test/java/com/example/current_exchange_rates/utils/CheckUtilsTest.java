@@ -2,6 +2,7 @@ package com.example.current_exchange_rates.utils;
 
 import com.example.current_exchange_rates.entity.enums.CodeCurrency;
 import com.example.current_exchange_rates.exceptions.IllegalArgumentException;
+import com.example.current_exchange_rates.exceptions.KeyNotValidException;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
@@ -55,6 +56,29 @@ public class CheckUtilsTest {
         IllegalArgumentException throwable = assertThrows(IllegalArgumentException.class,
                 () -> CheckUtils.checkCode("asdasd"));
         assertEquals("Error enter currency", throwable.getMessage());
+    }
+
+    @Test
+    public void checkCompanyExchangeTest() {
+        String act = CheckUtils.checkCompany("6933516f73f2016658690a3a");
+        assertEquals("ExchangeRate-API", act);
+    }
+
+    @Test
+    public void checkCompanyFreeApiTest() {
+        String act = CheckUtils.checkCompany("5c4bc070-797b-11ec-9d8f-ade5adf8122c");
+        assertEquals("Free Currency API", act);
+    }
+
+    @Test
+    public void checkCompanyTestException() {
+        KeyNotValidException throwable = assertThrows(KeyNotValidException.class, () -> CheckUtils.checkCompany("null"));
+        assertEquals("Key not valid", throwable.getMessage());
+    }
+
+    @Test
+    public void checkCompanyTestExceptionNull() {
+        assertThrows(NullPointerException.class, () -> CheckUtils.checkCompany(null));
     }
 
 }

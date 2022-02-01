@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +24,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseEntity getById(String id) {
+    public CourseEntity getById(UUID id) {
         return this.courseRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Course not found"));
     }

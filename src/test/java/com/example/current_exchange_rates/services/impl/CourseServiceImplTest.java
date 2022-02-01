@@ -1,8 +1,6 @@
 package com.example.current_exchange_rates.services.impl;
 
 import com.example.current_exchange_rates.entity.CourseEntity;
-import com.example.current_exchange_rates.exceptions.EntityNotFoundException;
-import com.example.current_exchange_rates.mocks.CourseEntityMock;
 import com.example.current_exchange_rates.services.CourseService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,7 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static com.example.current_exchange_rates.mocks.CourseEntityMock.defaultCourseEur;
 import static com.example.current_exchange_rates.mocks.CourseEntityMock.defaultCourseUsd;
@@ -59,8 +58,7 @@ public class CourseServiceImplTest {
     @Test
     @Sql(value = {"schema.sql", "data.sql"})
     public void getByIdTestException() {
-        EntityNotFoundException throwable = assertThrows(EntityNotFoundException.class, () -> this.courseService.getById("null"));
-        assertEquals("Course not found", throwable.getMessage());
+        assertThrows(IllegalArgumentException.class, () -> this.courseService.getById(UUID.fromString("null")));
     }
 
     @Test

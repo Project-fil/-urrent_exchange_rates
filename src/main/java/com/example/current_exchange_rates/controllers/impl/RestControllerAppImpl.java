@@ -24,6 +24,7 @@ import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import static com.example.current_exchange_rates.utils.CheckUtils.checkDirection;
@@ -81,7 +82,7 @@ public class RestControllerAppImpl implements RestControllerApp {
 
     @Override
     public ResponseEntity<ActualCourseResponse> getCourseById(@NotBlank String id) {
-        return ResponseEntity.ok(TransferObject.fromCourse(this.courseService.getById(id)));
+        return ResponseEntity.ok(TransferObject.fromCourse(this.courseService.getById(UUID.fromString(id))));
     }
 
     @Override

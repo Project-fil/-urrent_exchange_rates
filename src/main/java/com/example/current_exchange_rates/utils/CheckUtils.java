@@ -3,9 +3,6 @@ package com.example.current_exchange_rates.utils;
 import com.example.current_exchange_rates.entity.enums.CodeCurrency;
 import com.example.current_exchange_rates.exceptions.IllegalArgumentException;
 import com.example.current_exchange_rates.exceptions.KeyNotValidException;
-import com.example.current_exchange_rates.payload.dto.CourseDtoExchangeRate;
-import com.example.current_exchange_rates.payload.dto.CourseDtoFreeCurrency;
-import com.example.current_exchange_rates.payload.responses.BestCourseResponse;
 import lombok.experimental.UtilityClass;
 import org.springframework.data.domain.Sort;
 

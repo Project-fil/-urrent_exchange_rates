@@ -1,8 +1,9 @@
 drop table if exists actual_course cascade;
 create table TESTDB.PUBLIC.actual_course
 (
-    id                 varchar(255)   not null primary key,
+    id                 uuid(255)    not null primary key,
     api_key            varchar(100)   null,
+    company_name       varchar(255)   null,
     last_update_course varchar(50)    null,
     base_code          varchar(10)    null,
     code_currency      int            null,

@@ -26,7 +26,7 @@ public class CourseEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    private String id = UUID.randomUUID().toString();
+    private UUID id = UUID.randomUUID();
 
     @Column(name = "company_name")
     private String companyName;
@@ -79,7 +79,7 @@ public class CourseEntity implements Serializable {
     }
 
     public CourseEntity(
-            String id,
+            UUID id,
             String apiKey,
             String companyName,
             String lastUpdateCourse,

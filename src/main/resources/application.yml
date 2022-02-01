@@ -29,4 +29,4 @@ app:
       actual-option: /latest/
     free-currency:
       url-key: https://freecurrencyapi.net/api/v2/latest?apikey=5c4bc070-797b-11ec-9d8f-ade5adf8122c&base_currency=
-
+  docker-key-forcontainer: 4ab7219dfa13905a74872a7a3420507d1961bf31a1b68b3ae59c29a977352a11
